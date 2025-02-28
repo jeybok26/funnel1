@@ -68,6 +68,10 @@ a {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.feature:hover {
+    background: #4e8df8;
+}
+
 .feature h3 {
     font-size: 1.5rem;
     margin-bottom: 10px;
