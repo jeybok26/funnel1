@@ -28,12 +28,17 @@ function validateEmail(email) {
 }
 
 // Get elements
-const ctaButton = document.querySelector('.cta-button');
+const ctaButton = document.querySelector('.cta-button'); // "Get Started" button
+const signUpButton = document.querySelector('.cta-section .cta-button'); // "Sign Up Now" button
 const popup = document.getElementById('email-popup');
 const closeButton = document.querySelector('.close-button');
 
-// Show the pop-up when the CTA button is clicked
+// Show the pop-up when either CTA button is clicked
 ctaButton.addEventListener('click', () => {
+    popup.style.display = 'flex';
+});
+
+signUpButton.addEventListener('click', () => {
     popup.style.display = 'flex';
 });
 
@@ -42,6 +47,12 @@ closeButton.addEventListener('click', () => {
     popup.style.display = 'none';
 });
 
+// Close the pop-up when clicking outside the content
+window.addEventListener('click', (e) => {
+    if (e.target === popup) {
+        popup.style.display = 'none';
+    }
+});
 
 // Handle form submission (optional)
 const popupForm = document.getElementById('popup-form');
