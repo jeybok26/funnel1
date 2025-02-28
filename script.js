@@ -26,3 +26,28 @@ function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(String(email).toLowerCase());
 }
+
+// Get elements
+const ctaButton = document.querySelector('.cta-button');
+const popup = document.getElementById('email-popup');
+const closeButton = document.querySelector('.close-button');
+
+// Show the pop-up when the CTA button is clicked
+ctaButton.addEventListener('click', () => {
+    popup.style.display = 'flex';
+});
+
+// Close the pop-up when the close button is clicked
+closeButton.addEventListener('click', () => {
+    popup.style.display = 'none';
+});
+
+
+// Handle form submission (optional)
+const popupForm = document.getElementById('popup-form');
+popupForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = popupForm.querySelector('input[type="email"]').value;
+    alert(`Thank you for signing up, ${email}!`);
+    popup.style.display = 'none';
+});
